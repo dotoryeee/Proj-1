@@ -1,0 +1,25 @@
+#language: generic
+#
+#services:
+#  - docker
+#
+#before_install:
+#  - docker build -t dotoryeee/server-test -f dockerfile.dev ./
+#
+#script:
+#  - docker run -e CI=true dotoryeee/server-test python test.py
+#
+#after_success:
+#  - echo "TEST SUCCESS"
+#
+#deploy:
+#  provider: elasticbeanstalk
+#  region: "ap-northeast-2"
+#  app:
+#  env:
+#  bucket_name:
+#  bucket_path:
+#  on:
+#    branch: master
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_ACCESS_KEY
