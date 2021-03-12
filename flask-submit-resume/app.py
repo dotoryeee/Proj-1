@@ -3,12 +3,12 @@ from flask import Flask
 app = Flask('submit page')
 
 HOST = "0.0.0.0"
-PORT = 7000
+PORT = 5000
 
 
 @app.route('/')
-def home():
-    return "Resume Submit Page"
+def index():
+    return 'hello'
 
 
-app.run(host=HOST, port=PORT)
+app.run(host=HOST)

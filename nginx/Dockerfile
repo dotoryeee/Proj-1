@@ -1,6 +1,5 @@
-FROM python:3.9.2-slim
+FROM nginx
 
-WORKDIR /usr/src/app
-COPY ./ ./
+COPY default.conf /etc/nginx/conf.d/
 
-
+#CMD ["nginx", "-g", "daemon off;"]
