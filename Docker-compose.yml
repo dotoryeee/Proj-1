@@ -1,21 +1,22 @@
 version: "3"
 services:
-  server-submit:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./flask-submit-resume
-    restart: always
-    container_name: server-submit
-    expose:
-      - 8080
-    volumes:
-      - ./flask-submit-resume:/usr/src/app
-
-  nginx:
+  flask-submit-server:
     build:
       dockerfile: Dockerfile
-      context: ./nginx
+      context: flask-submit-server
+    restart: always
+    container_name: flask-submit-server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./flask-submit-server:/usr/src/app
+    command: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
+
+  nginx:
     container_name: nginx
     restart: always
+    build: ./nginx
     ports:
       - "80:80"
+    depends_on:
+      - flask-submit-server
