@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t dotoryeee/test-submit-server -f ./flask-submit-server/dockerfile ./flask-submit-server
+  - docker build -t dotoryeee/test-submit-server -f ./flask-submit-server/Dockerfile ./flask-submit-server
 
 script:
   - docker run -e CI=true dotoryeee/test-submit-server python3 test.py
