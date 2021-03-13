@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t dotoryeee/test-submit-server -f dockerfile ./flask-submit-server
+  - docker build -t dotoryeee/test-submit-server -f ./flask-submit-server/dockerfile ./flask-submit-server
 
 script:
   - docker run -e CI=true dotoryeee/test-submit-server python3 test.py
@@ -12,14 +12,14 @@ script:
 after_success:
   - echo "TEST SUCCESS"
 
-deploy:
-  provider: elasticbeanstalk
-  region: "ap-northeast-2"
-  app:
-  env:
-  bucket_name:
-  bucket_path:
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
+#deploy:
+#  provider: elasticbeanstalk
+#  region: "ap-northeast-2"
+#  app:
+#  env:
+#  bucket_name:
+#  bucket_path:
+#  on:
+#    branch: master
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_ACCESS_KEY
