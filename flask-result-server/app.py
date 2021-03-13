@@ -4,4 +4,4 @@ server = Flask(__name__)
 
 @server.route('/')
 def hello_world():
-    return 'Submit Page'
+    return 'Result Page'
