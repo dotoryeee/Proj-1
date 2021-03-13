@@ -20,6 +20,11 @@ after_success:
   - docker push dotoryeee/flask-result-server
   - docker push dotoryeee/nginx
 
+before_deploy:
+  - zip -r myapp
+  - mkdir deploy
+  - mv myapp deploy
+
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
@@ -27,7 +32,7 @@ deploy:
     bucket: dotoryeee-s3
     region: ap-northeast-2
     #skip_cleanup: true
-    #local_dir: deploy
+    local_dir: deploy
     wait-until-deployed: true
     on:
       branch: main
