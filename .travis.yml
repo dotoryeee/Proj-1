@@ -21,9 +21,9 @@ after_success:
   - docker push dotoryeee/nginx
 
 before_deploy:
-  - zip -r myapp
-  - mkdir deploy
-  - mv myapp deploy
+  - zip myapp.zip ./* #CI 완료 후 모든 파일을 myapp.zip로 압축
+  - mkdir deploy #deploy 디렉터리 생성
+  - mv myapp deploy #myapp.zip를 deploy디렉터리로 이동
 
 deploy:
   - provider: s3
@@ -32,7 +32,7 @@ deploy:
     bucket: dotoryeee-s3
     region: ap-northeast-2
     #skip_cleanup: true
-    local_dir: deploy
+    local_dir: deploy #deploy 디렉터리의 파일을 S3에 전송
     wait-until-deployed: true
     on:
       branch: main
@@ -45,6 +45,6 @@ deploy:
     application: talentpool
     deployment_group: CICD-test
     region: ap-northeast-2
-    wait-until-deployed: true
+    wait-until-deployed: true #AWS에 파일 전달 이후에도 에러 확인 가능
     on:
       branch: main
