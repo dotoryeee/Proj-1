@@ -10,16 +10,24 @@ script:
   - docker run -e CI=true dotoryeee/test-submit-server python3 test.py
 
 after_success:
-  - echo "TEST SUCCESS"
+  - docker build -t dotoryeee/flask-submit-server ./flask-submit-server
+  - docker build -t dotoryeee/flask-result-server ./flask-result-server
+  - docker build -t dotoryeee/nginx ./nginx
 
-#deploy:
-#  provider: elasticbeanstalk
-#  region: "ap-northeast-2"
-#  app:
-#  env:
-#  bucket_name:
-#  bucket_path:
-#  on:
-#    branch: master
-#  access_key_id: $AWS_ACCESS_KEY
-#  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+
+  - docker push dotoryeee/flask-submit-server
+  - docker push dotoryeee/flask-result-server
+  - docker push dotoryeee/nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app:
+  env:
+  bucket_name:
+  bucket_path:
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
