@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   flask-submit-server:
     build:
       dockerfile: Dockerfile
@@ -18,5 +19,6 @@ services:
     build: ./nginx
     ports:
       - "80:80"
+    #flask 컨테이너 로드가 끝나면 Nginx를 시작합니다
     depends_on:
       - flask-submit-server
