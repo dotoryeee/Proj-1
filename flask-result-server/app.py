@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, render_template
 
 server = Flask(__name__)
 
 @server.route('/')
 def hello_world():
-    return 'Result Page'
+    return render_template("result.html")
