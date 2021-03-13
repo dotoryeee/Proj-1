@@ -2,16 +2,16 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "server-result",
+      "name": "flask-result-server",
       "image": "dotoryeee/flask-result-server",
-      "hostname": "server-result",
+      "hostname": "flask-result-server",
       "essential": false,
       "memory": 128
     },
     {
-      "name": "server-submit",
+      "name": "flask-submit-server",
       "image": "dotoryeee/flask-submit-server",
-      "hostname": "server-submit",
+      "hostname": "flask-submit-server",
       "essential": false,
       "memory": 128
     },
@@ -27,8 +27,8 @@
         }
       ],
       "links": [
-        "server-result",
-        "server-submit"
+        "flask-result-server",
+        "flask-submit-server"
       ],
       "memory": 128
     }
