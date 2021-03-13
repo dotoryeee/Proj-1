@@ -28,8 +28,7 @@
       ],
       "links": [
         "server-result",
-        "server-submit",
-        "nginx"
+        "server-submit"
       ],
       "memory": 128
     }
