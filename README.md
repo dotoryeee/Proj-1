@@ -1,4 +1,4 @@
-# Simple employment information system for Employer
+# Simple Talent Pool for Recruiter
 ### Summary
 + DEV on Docker Container
 + CICD pipeline with Travis CI

@@ -3,5 +3,6 @@ FROM python:3.9.2-alpine
 WORKDIR usr/src/app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 7000
 #캐시를 사용하지 않아 이미지를 최소화 합니다
 COPY ./ ./

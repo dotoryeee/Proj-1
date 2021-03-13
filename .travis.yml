@@ -23,10 +23,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: "ap-northeast-2"
-  app:
-  env:
-  bucket_name:
-  bucket_path:
+  app: "talentpool"
+  env: "Talentpool-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-737382971423"
+  bucket_path: "talentpool"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY

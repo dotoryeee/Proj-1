@@ -1,0 +1,37 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "server-result",
+      "image": "dotoryeee/flask-result-server",
+      "hostname": "server-result",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "server-submit",
+      "image": "dotoryeee/flask-submit-server",
+      "hostname": "server-submit",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "nginx",
+      "image": "dotoryeee/nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "server-result",
+        "server-submit",
+        "nginx"
+      ],
+      "memory": 128
+    }
+  ]
+}
