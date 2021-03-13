@@ -6,14 +6,26 @@
       "image": "dotoryeee/flask-result-server",
       "hostname": "flask-result-server",
       "essential": false,
-      "memory": 128
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 7000,
+          "containerPort": 7000
+        }
+      ]
     },
     {
       "name": "flask-submit-server",
       "image": "dotoryeee/flask-submit-server",
       "hostname": "flask-submit-server",
       "essential": false,
-      "memory": 128
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "containerPort": 8000
+        }
+      ]
     },
     {
       "name": "nginx",
