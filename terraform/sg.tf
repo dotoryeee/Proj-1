@@ -29,3 +29,4 @@ resource "aws_security_group" "public_ec2" {
     "Name" = "SG-EC2-webserver"
   }
 }
+
