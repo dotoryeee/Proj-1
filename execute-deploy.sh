@@ -5,5 +5,4 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 #docker-compose -f /home/ec2-user/app/docker-compose-ec2.yml rm -fs
 docker system prune -a -f
-docker-compose -f /home/ec2-user/app/docker-compose-ec2.yml -d up
-sleep 10s
+docker-compose -f /home/ec2-user/app/docker-compose-ec2.yml up -d
