@@ -43,7 +43,7 @@ deploy:
     key: myapp.zip
     bundle_type: zip
     application: talentpool
-    deployment_group: CICD-test
+    deployment_group: main-deploy
     region: ap-northeast-2
     wait-until-deployed: true #AWS에 파일 전달 이후에도 에러 확인 가능
     on:
