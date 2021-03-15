@@ -19,7 +19,7 @@ resource "aws_instance" "public_01" {
   user_data = <<-EOF
                 #!/bin/bash
                 aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
-                sudo yum install -y ruby wget
+                sudo yum install -y ruby wget git
                 chmod +x ./install
                 sudo ./install auto
                 sudo service codedeploy-agent start
@@ -28,6 +28,8 @@ resource "aws_instance" "public_01" {
                 sudo systemctl enable docker
                 sudo usermod -aG docker ec2-user
                 sudo chmod 666 /var/run/docker.sock
+                sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+                sudo chmod +x /usr/local/bin/docker-compose
                 EOF
 
   iam_instance_profile = "EC2_role_for_codedeploy"
@@ -55,7 +57,7 @@ resource "aws_instance" "public_02" {
   user_data = <<-EOF
                 #!/bin/bash
                 aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
-                sudo yum install -y ruby wget
+                sudo yum install -y ruby wget git
                 chmod +x ./install
                 sudo ./install auto
                 sudo service codedeploy-agent start
@@ -64,6 +66,8 @@ resource "aws_instance" "public_02" {
                 sudo systemctl enable docker
                 sudo usermod -aG docker ec2-user
                 sudo chmod 666 /var/run/docker.sock
+                sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+                sudo chmod +x /usr/local/bin/docker-compose
                 EOF
 
   tags = {
