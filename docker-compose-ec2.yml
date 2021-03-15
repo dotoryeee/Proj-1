@@ -1,22 +1,15 @@
 version: "3"
 services:
-
   flask-submit-server:
-    build:
-      dockerfile: Dockerfile
-      context: flask-submit-server
+    image: dotoryeee/flask-submit-server
     restart: always
     container_name: flask-submit-server
     ports:
       - "8000:8000"
-    volumes:
-      - ./flask-submit-server:/usr/src/app
     command: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
 
   flask-result-server:
-    build:
-      dockerfile: Dockerfile
-      context: flask-result-server
+    image: dotoryeee/flask-result-server
     restart: always
     container_name: flask-result-server
     ports:
@@ -26,21 +19,12 @@ services:
     command: gunicorn -w 1 -b 0.0.0.0:7000 wsgi:server
 
   nginx:
+    image: dotoryeee/nginx
     container_name: nginx
     restart: always
-    build: ./nginx
     ports:
       - "80:80"
     #flask 컨테이너 로드가 끝나면 Nginx를 시작합니다
     depends_on:
       - flask-submit-server
       - flask-result-server
-
-  db:
-    container_name: db
-    build: ./mysql
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: dotoryeee
-      MYSQL_DATABASE: maindb

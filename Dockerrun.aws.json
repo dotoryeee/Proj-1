@@ -1,3 +1,4 @@
+############빈스톡에서 올릴 떄 사용############
 {
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
