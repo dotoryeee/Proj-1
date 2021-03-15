@@ -5,7 +5,7 @@ resource "aws_key_pair" "dotoryeee" {
 
 resource "aws_instance" "public_01" {
   ami = "ami-006e2f9fa7597680a"
-  instance_type = "t2-mirco"
+  instance_type = "t2.micro"
 
   subnet_id = aws_subnet.public-2a.id
 
@@ -14,6 +14,22 @@ resource "aws_instance" "public_01" {
 
   key_name = aws_key_pair.dotoryeee.key_name
 
+  user_data = <<-EOF
+                #!/bin/bash
+                aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
+                sudo yum install -y ruby wget
+                chmod +x ./install
+                sudo ./install auto
+                sudo service codedeploy-agent start
+                sudo yum -y install docker
+                sudo systemctl start docker
+                sudo systemctl enable docker
+                sudo usermod -aG docker ec2-user
+                sudo chmod 666 /var/run/docker.sock
+                EOF
+
+  iam_instance_profile = "EC2_role_for_codedeploy"
+
   tags = {
     Name = "talentpool-webserver"
   }
@@ -21,7 +37,7 @@ resource "aws_instance" "public_01" {
 
 resource "aws_instance" "public_02" {
   ami = "ami-006e2f9fa7597680a"
-  instance_type = "t2-mirco"
+  instance_type = "t2.micro"
 
   subnet_id = aws_subnet.public-2c.id
 
@@ -29,6 +45,22 @@ resource "aws_instance" "public_02" {
     aws_security_group.public_ec2.id]
 
   key_name = aws_key_pair.dotoryeee.key_name
+
+  iam_instance_profile = "EC2_role_for_codedeploy"
+
+  user_data = <<-EOF
+                #!/bin/bash
+                aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
+                sudo yum install -y ruby wget
+                chmod +x ./install
+                sudo ./install auto
+                sudo service codedeploy-agent start
+                sudo yum -y install docker
+                sudo systemctl start docker
+                sudo systemctl enable docker
+                sudo usermod -aG docker ec2-user
+                sudo chmod 666 /var/run/docker.sock
+                EOF
 
   tags = {
     Name = "talentpool-webserver"

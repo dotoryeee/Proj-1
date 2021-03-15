@@ -1,7 +1,7 @@
 resource "aws_security_group" "public_ec2" {
   vpc_id = aws_vpc.main.id
 
-  name        = "allow SSH"
+  name        = "allow SSH and HTTP"
   description = "allow SSH from anywhere"
 
   ingress {

@@ -115,3 +115,4 @@ dmypy.json
 .terraform
 .terraform.lock.hcl
 myapp.zip
+.backup
