@@ -31,14 +31,57 @@ body {
     align-items: center;
 }
 
-.line:last-child{
+.line:last-child {
     justify-content: space-evenly;
 }
 
-label{
+label {
     width: 100px;
     margin-right: 20px;
     text-align: justify-all;
 }
+
+/*button CSS from https://nanati.me/css-button-design/*/
+button {
+    background: #1AAB8A;
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 60px;
+    font-size: 24px;
+    padding: 0 2em;
+    cursor: pointer;
+    outline: none;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #fff;
+    color: #1AAB8A;
+}
+
+button:before, button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #1AAB8A;
+    transition: 400ms ease all;
+}
+
+button:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+button:hover:before, button:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
+
 
 
