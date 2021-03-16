@@ -10,7 +10,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./flask-submit-server:/usr/src/app
+      - ./flask-submit-server:/usr/src/submit-app
     command: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
 
   flask-result-server:
@@ -22,7 +22,7 @@ services:
     ports:
       - "7000:7000"
     volumes:
-      - ./flask-result-server:/usr/src/app
+      - ./flask-result-server:/usr/src/result-app
     command: gunicorn -w 1 -b 0.0.0.0:7000 wsgi:server
 
   nginx:
