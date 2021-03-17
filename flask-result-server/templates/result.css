@@ -1,3 +1,97 @@
-body{
-    background-color: floralwhite;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap');
+/*playfair display 500, italic600, bold700*/
+
+body {
+    background-color: #fafafa;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 24px;
+    flex-direction: column;
+}
+
+.title {
+    display: block;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.main--box {
+    background-color: white;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.line {
+    width: 400px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.line:last-child {
+    margin-top: 185px;
+    justify-content: space-evenly;
+}
+
+label {
+    width: 100px;
+    margin-right: 20px;
+    text-align: justify-all;
+}
+
+input {
+    height: 30px;
+    width: 260px;
+}
+
+/*button CSS from https://nanati.me/css-button-design/*/
+button {
+    background: #1AAB8A;
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 60px;
+    font-size: 24px;
+    padding: 0 2em;
+    cursor: pointer;
+    outline: none;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #fff;
+    color: #1AAB8A;
+}
+
+button:before, button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #1AAB8A;
+    transition: 400ms ease all;
+}
+
+button:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+button:hover:before, button:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
 }
