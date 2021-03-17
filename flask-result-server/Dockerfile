@@ -1,4 +1,4 @@
-FROM python:3.9.2-alpine
+FROM python:3.8.8-alpine
 #최소 사이즈를 위해 alpine빌드를 베이스 이미지로 가져갑니다
 WORKDIR usr/src/app
 COPY requirements.txt ./
