@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "ami_image" {
-  type = "map"
+  type = map
   default = {}
 }
 
