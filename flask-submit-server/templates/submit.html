@@ -16,7 +16,15 @@
             font-family: 'Playfair Display', serif;
             font-weight: 500;
             font-size: 24px;
+            flex-direction: column;
         }
+
+        .title {
+            display: block;
+            font-weight: 600;
+            font-style: italic;
+        }
+
 
         .main--box {
             background-color: white;
@@ -45,6 +53,11 @@
             width: 100px;
             margin-right: 20px;
             text-align: justify-all;
+        }
+
+        input {
+            height: 30px;
+            width: 260px;
         }
 
         /*button CSS from https://nanati.me/css-button-design/*/
@@ -92,6 +105,9 @@
     <link rel="stylesheet" href="/static/flask-submit-server/templates/style.css">
 </head>
 <body>
+<div class="title">
+    <h1>지원하기</h1>
+</div>
 <div class="main--box">
     <form action="" class="main--form">
         <div class="line">
@@ -117,7 +133,7 @@
 
         <div class="line">
             <button type="submit">지원하기</button>
-            <button type="result">결과보기</button>
+            <button type="submit">결과보기</button>
         </div>
     </form>
 </div>
