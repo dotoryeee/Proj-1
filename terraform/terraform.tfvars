@@ -11,3 +11,9 @@ availability_zone = [
   "ap-northeast-2c"
 ]
 
+RDS = {
+  identifier = "myapp" #RDS 식별자
+  username   = "root" #접속 User
+  password   = "password" #접속 비밀번호
+  name       = "humandb" #기본 DB
+}
