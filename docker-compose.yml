@@ -36,11 +36,11 @@ services:
       - flask-submit-server
       - flask-result-server
 
-  db:
-    container_name: db
-    build: ./mysql
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: dotoryeee
-      MYSQL_DATABASE: maindb
+#  db:
+#    container_name: db
+#    build: ./mysql
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      MYSQL_ROOT_PASSWORD: dotoryeee
+#      MYSQL_DATABASE: maindb
