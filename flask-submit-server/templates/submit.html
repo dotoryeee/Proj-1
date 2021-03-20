@@ -4,44 +4,34 @@
     <meta charset="UTF-8">
     <title>Submit Page</title>
     <link rel="stylesheet" href="https://dotoryeee-s3.s3.ap-northeast-2.amazonaws.com/submit.css">
-    <!--    로컬머신에서 개발할 때 css 확인용-->
-    <link rel="stylesheet" href="submit.css">
 </head>
 <body>
 <div class="title">
     <h1>지원하기</h1>
 </div>
 <div class="main--box">
-    <form action="" class="main--form">
+    <form action="/" method="POST" class="main--form">
         <div class="line">
             <label for="name">Name</label>
-            <input id="name" type="text" placeholder="Your Name" class="main--input"><br>
+            <input id="name" name="name" type="text" placeholder="Your Name" class="main--input"><br>
         </div>
         <div class="line">
             <label for="contact">Contact</label>
-            <input id="contact" type="text" placeholder="Phone Number or Email" class="main--input"><br>
+            <input id="contact" name="contact" type="text" placeholder="Phone Number or Email" class="main--input"><br>
         </div>
         <div class="line">
             <label for="resume">Resume</label>
-            <input id="resume" class="main--input"><br>
+            <input id="resume" name="resume" type="text" placeholder="address of you Resume" class="main--input"><br>
         </div>
         <div class="line">
             <label for="blog">Blog</label>
-            <input id="blog" type="text" placeholder="Blog or Github Address" class="main--input"><br>
+            <input id="blog" name="blog" type="text" placeholder="Blog or Github Address" class="main--input"><br>
         </div>
         <div class="line">
-            <label for="file">File</label>
-            <input id="file" type="text" class="main--input"><br>
-        </div>
-
-        <div class="line">
-            <button type="submit">지원하기</button>
-            <button type="submit">결과보기</button>
+            <button type="submit" name="submit">지원하기</button>
         </div>
     </form>
 </div>
 <script src="https://dotoryeee-s3.s3.ap-northeast-2.amazonaws.com/submit.js"></script>
-<!--    로컬머신에서 개발할 때 js 확인용-->
-<script src="submit.js"></script>
 </body>
 </html>

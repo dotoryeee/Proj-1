@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <title>Result Page</title>
     <link rel="stylesheet" href="https://dotoryeee-s3.s3.ap-northeast-2.amazonaws.com/result.css">
-<!--    로컬머신에서 개발할 때 css 확인용-->
-    <link rel="stylesheet" href="result.css">
+    <style>
+        h3{
+            color: black;
+        }
+    </style>
 </head>
 <body>
 <div class="title">
     <h1>결과보기</h1>
 </div>
 <div class="main--box">
-    <form action="">
+    <form action="/result" method="get">
         <div class="line">
             <label for="name">Name</label>
-            <input id="name" type="text" placeholder="이름을 입력해주세요">
+            <input id="name" name="name" type="text" placeholder="이름을 입력해주세요">
         </div>
         <div class="line">
             <label for="contact">Contact</label>
-            <input id="contact" type="text" placeholder="Phone Number or Email">
+            <input id="contact" name="contact" type="text" placeholder="Phone Number or Email">
         </div>
         <div class="line">
-            <button type="submit">지원하기</button>
-            <button type="button">결과보기</button>
+            <button type="submit">결과보기</button>
         </div>
     </form>
+    <div>
+        <h3>{{result}}</h3>
+    </div>
 </div>
 <script src="https://dotoryeee-s3.s3.ap-northeast-2.amazonaws.com/result.js"></script>
-<!--    로컬머신에서 개발할 때 js 확인용-->
-<script src="result.js"></script>
 </body>
 </html>
