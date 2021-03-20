@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import pymysql
 
-RDS_ENDPOINT = 'testdb.cnr20hoyd3cu.ap-northeast-2.rds.amazonaws.com'
+RDS_ENDPOINT = 'myapp.cnr20hoyd3cu.ap-northeast-2.rds.amazonaws.com'
 RDS_PORT = 3306
 RDS_USER = 'root'
 RDS_PASSWORD = 'password'
