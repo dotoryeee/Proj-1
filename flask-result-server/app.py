@@ -29,24 +29,23 @@ def getData(name, contact):
 server = Flask(__name__)
 
 
-@server.route('/', methods=['get', 'post'])
+@server.route('/', methods=['get'])
 def home():
-    if request.method == 'POST':
-        name = request.form['name']
-        contact = request.form['contact']
-        print(name, contact)
-        try:
-            result = getData(name, contact)
-            result = result[0][0] #리턴된 SQL데이터의 1번 1열 값 가져오기
-            print(result)
-            if result == 0:
-                result = "No result yet"
-            elif result == 1:
-                result = "합격"
-            elif result == 2:
-                result = "불합격"
-        except:
-            result = '지원자를 찾을 수 없음'
-        return render_template('result.html', result=result)
-    else:
-        return render_template("result.html")
+    try:
+        name = request.args.get('name')
+        contact = request.args.get('contact')
+        print(name, contact, end=' / result : ')
+        result = getData(name, contact)
+        result = result[0][0]  # 리턴된 SQL데이터의 1번 1열 값 가져오기
+        print(result)
+        if result == 0:
+            result = "No result yet"
+        elif result == 1:
+            result = "합격"
+        elif result == 2:
+            result = "불합격"
+        else:
+            result = "지원자를 찾을 수 없음"
+    except:
+        result = ''
+    return render_template('result.html', result=result)

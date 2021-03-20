@@ -22,7 +22,7 @@ conn = pymysql.connect(
 def createTable():
     cursor = conn.cursor()
     create_table = f"create table {RDS_TABLE} (number int auto_increment primary key, name char(10) not null ,contact text not null ,resume text, blog text, result BOOLEAN default 0)"
-    try:
+    try:  # 테이블이 없으때만 실행
         cursor.execute(create_table)
     except:
         print('Table Already Exist')
@@ -57,6 +57,7 @@ def submit():
         blog = request.form['blog']
         insertData(name, contact, resume, blog)
     return render_template("submit.html")
+
 
 def echo_test():
     return 'success'
