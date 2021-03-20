@@ -21,7 +21,7 @@ conn = pymysql.connect(
 # --------Table Creation----------
 def createTable():
     cursor = conn.cursor()
-    create_table = f"create table {RDS_TABLE} (number int auto_increment primary key, name char(10) not null ,contact text not null ,resume text, blog text, result BOOLEAN)"
+    create_table = f"create table {RDS_TABLE} (number int auto_increment primary key, name char(10) not null ,contact text not null ,resume text, blog text, result BOOLEAN default 0)"
     try:
         cursor.execute(create_table)
     except:
@@ -48,21 +48,15 @@ createTable()
 server = Flask(__name__)
 
 
-@server.route('/')
+@server.route('/', methods=['GET', 'POST'])
 def submit():
-    return render_template("submit.html")
-
-
-@server.route('/insert', methods=['POST'])
-def insert():
     if request.method == 'POST':
         name = request.form['name']
         contact = request.form['contact']
         resume = request.form['resume']
         blog = request.form['blog']
         insertData(name, contact, resume, blog)
-        return render_template('submit.html')
-
+    return render_template("submit.html")
 
 def echo_test():
     return 'success'
