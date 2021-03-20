@@ -6,6 +6,6 @@
 ### Features
 + Deploy all AWS infra requirements with Terraform
 + Employee will submit resume on this system
-+ Cover Traffic burst with Auto Scaling and ALB
++ Cover Traffic burst with Docker Swarm Load-balancing
 ### Diagram and instructions
 + https://www.dotoryeee.com/article/project-1
