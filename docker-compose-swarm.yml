@@ -1,0 +1,42 @@
+version: "3"
+services:
+  flask-submit-server:
+    image: dotoryeee/flask-submit-server
+    restart: always
+    container_name: flask-submit-server
+    ports:
+      - "8000:8000"
+    networks:
+      internal:
+        aliases:
+          - flask-submit-server
+    command: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
+
+  flask-result-server:
+    image: dotoryeee/flask-result-server
+    restart: always
+    container_name: flask-result-server
+    ports:
+      - "7000:7000"
+    volumes:
+      - ./flask-result-server:/usr/src/app
+    networks:
+      internal:
+        aliases:
+          - flask-result-server
+    command: gunicorn -w 1 -b 0.0.0.0:7000 wsgi:server
+
+  nginx:
+    image: dotoryeee/nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - internal
+    #flask 컨테이너 로드가 끝나면 Nginx를 시작합니다
+    depends_on:
+      - flask-submit-server
+      - flask-result-server
+networks:
+  internal:
