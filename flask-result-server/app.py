@@ -9,13 +9,13 @@ RDS_DATABASE = 'humandb'
 RDS_TABLE = 'applicant'
 
 # ---------RDS Connect--------------
-conn = pymysql.connect(
-    host=RDS_ENDPOINT,
-    port=RDS_PORT,
-    user=RDS_USER,
-    password=RDS_PASSWORD,
-    db=RDS_DATABASE
-)
+# conn = pymysql.connect(
+#     host=RDS_ENDPOINT,
+#     port=RDS_PORT,
+#     user=RDS_USER,
+#     password=RDS_PASSWORD,
+#     db=RDS_DATABASE
+# )
 
 
 # ----------RDS Select(SQL) Function---------
